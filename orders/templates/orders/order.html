@@ -1,0 +1,19 @@
+{% extends "orders/layouts/default.html" %}
+
+{% block title %} Order {% endblock %}
+
+{% block body %}
+
+  {% include "orders/includes/navbar.html" %}
+
+<div class="container">
+  <h2>Order Summary</h2>
+  <p>Please take a moment to review your order before placing it.</p>
+  
+  {% include "orders/includes/item_tables.html" %}
+  
+  <h4>Total: ${{ total_price }}</h4>
+  
+  {% include "orders/includes/place_order_button.html" %}
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "orders/layouts/default.html" %}
+
+{% block title %} Hours {% endblock %}
+
+{% block body %}
+
+{% include "orders/includes/navbar.html" %}
+
+<div class="container">
+<div class="alert alert-primary" role="alert">
+    <h2 class="mb-2">Our store hours are.</h2>
+    <p class="mb-2">- Sunday 1 pm - 12 midnight</p>
+    <p class="mb-2">- Monday - Thursday	11 am - 1 am</p>
+    <p class="mb-2">- Friday - Saturday	11 am - 2:30 am*</p>
+    <p class="mb-2">- Please note that when the undergraduate students are not in session we close on Friday and Saturday night <br/>
+        at 1:00 am instead of 2:30 am.</p>
+</div>
+</div>
+{% endblock %}

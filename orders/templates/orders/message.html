@@ -1,0 +1,14 @@
+{% extends "orders/layouts/default.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="alert alert-primary" role="alert">
+    <h2>{{ title }}</h2>
+    <p>{{ message }}</p>
+    <a href="{% url 'index' %}">Regresar al Menu</a>
+  </div>
+</div>
+
+{% endblock %}

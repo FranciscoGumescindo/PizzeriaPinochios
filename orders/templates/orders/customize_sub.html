@@ -1,0 +1,40 @@
+{% extends "orders/layouts/default.html" %}
+
+{% block title %} Customize Sub {% endblock %}
+
+{% block body %}
+
+  {% include "orders/includes/navbar.html" %}
+
+<div class="container">
+  <form id="sub-form">
+    <div class="form-group">
+      <label for="sub-name">Sub Name</label>
+        <select name="sub-name" class="form-control" id="sub-name">
+          {% for sub_name in sub_names %}
+          <option>{{ sub_name }}</option>
+          {% endfor %}
+        </select>
+      <label for="sub-size">Sub Size</label>
+        <select name="sub-size" class="form-control" id="sub-size">
+          <option>Small</option>
+          <option>Large</option>
+        </select>
+      <div class="sub-addons">
+        <label for="sub-addons">Sub Addons</label>
+      </div>
+      <div class="sub-submit-button-container">
+        <button id="sub-submit-button" type="button">Add to Cart</button>
+      </div>
+    </div>
+  </form>
+  
+  <div class="sub-price-container">
+    <span class="sub-price"></span>
+  </div>
+
+  {% include "orders/includes/message.html" %}
+  {% include "orders/includes/shopping_cart_navbar.html" %}
+</div>
+
+{% endblock %}

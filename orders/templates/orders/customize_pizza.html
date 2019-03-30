@@ -1,0 +1,53 @@
+{% extends "orders/layouts/default.html" %}
+
+{% block title %} Customize Pizza {% endblock %}
+
+{% block body %}
+
+  {% include "orders/includes/navbar.html" %}
+
+<div class="container">
+  <h1>Customize Pizza</h1>
+  <form id="pizza-form">
+    <div class="form-group">
+      <label for="pizza-category">Pizza Category</label>
+        <select name="pizza-category" class="form-control" id="pizza-category">
+          {% for pizza_category in pizza_categories %}
+          <option>{{ pizza_category }}</option>
+          {% endfor %}
+        </select>
+      <label for="pizza-size">Pizza Size</label>
+        <select name="pizza-size" class="form-control" id="pizza-size">
+          <option>Small</option>
+          <option>Large</option>
+        </select>
+      <div class="pizza-toppings mt-3">
+        <label for="pizza-topping">Pizza Toppings</label>
+        {% for topping in toppings %}
+        <div class="custom-control custom-checkbox">
+          <input value="{{ topping }}" type="checkbox" class="pizza-topping
+          custom-control-input" id="{{ topping }}">
+          <label class="custom-control-label" for="{{ topping }}">
+            {{ topping }}
+          </label>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="pizza-submit-button-container mt-3">
+        <button class="btn btn-primary" id="pizza-submit-button" type="button">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </form>
+  
+  <div class="pizza-price-container">
+    <h4 class="pizza-price-title">Total:</h4>
+    <span class="pizza-price"></span>
+  </div>
+
+  {% include "orders/includes/message.html" %}
+  {% include "orders/includes/shopping_cart_navbar.html" %}
+</div>
+
+{% endblock %}

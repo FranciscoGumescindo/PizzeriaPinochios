@@ -1,0 +1,24 @@
+{% extends "orders/layouts/default.html" %}
+
+{% block title %} Order History {% endblock %}
+
+{% block body %}
+
+  {% include "orders/includes/navbar.html" %}
+
+<div class="container">
+<h1 class="mb-3">Order History</h1>
+
+{% if orders %}
+  {% include "orders/includes/order_card.html" %}
+{% else %}
+  <div class="alert alert-primary" role="alert">
+    <h2 class="mb-2">It's pretty empty here.</h2>
+    <p class="mb-0">
+      There are no orders in the order history. You haven't order anything
+      before.
+    </p>
+  </div>
+{% endif %}
+</div>
+{% endblock %}

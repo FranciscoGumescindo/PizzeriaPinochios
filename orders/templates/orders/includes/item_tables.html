@@ -1,0 +1,110 @@
+{% if items %}
+<h2 class="mb-2">Static Items</h2>
+<div class="table-responsive">
+  <table class="table static-items">
+    <tr>
+      <th>#</th>
+      <th>Item</th>
+      <th>Category</th>
+      <th>Size</th>
+      <th>Price</th>
+      {% if action %}
+      <th>Action</th>
+      {% endif %}
+    </tr>
+    {% for item in items %}
+    <tr data-item_number="{{ forloop.counter }}" data-id="{{ item.id }}"
+    data-name="{{ item.name }}" data-item_type="static"
+    class="shopping-cart-item">
+      <td>{{ forloop.counter }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.category }}</td>
+      <td>
+        {% if item.size == "None" %}
+          -
+        {% else %}
+          {{ item.size }}
+        {% endif %}
+      </td>
+      <td>${{ item.price }}</td>
+      {% if action %}
+       <td>
+         <button class="btn btn-danger btn-item-remove"
+         data-item_number="{{ forloop.counter }}"
+         data-item_type="static">
+           Remove
+         </button>
+       </td>
+       {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endif %}
+
+{% if custom_items %}
+<h2 class="mb-2">Custom Items</h2>
+<div class="table-responsive">
+  <table class="table custom-items">
+    <tr>
+      <th>#</th>
+      <th>Item</th>
+      <th>Category</th>
+      <th>Size</th>
+      <th>Toppings / Addons</th>
+      <th>Price</th>
+      {% if action %}
+      <th>Action</th>
+      {% endif %}
+    </tr>
+    {% for custom_item in custom_items %}
+    <tr data-item_number="{{ forloop.counter }}"
+    data-id="{{ custom_item.id }}" data-name="{{ custom_item.name }}"
+    data-item_type="custom" class="shopping-cart-item">
+      <td>{{ forloop.counter }}</td>
+      <td>{{ custom_item.name }}</td>
+      <td>{{ custom_item.category }}</td>
+      <td>
+        {% if custom_item.size == "None" %}
+          -
+        {% else %}
+          {{ custom_item.size }}
+        {% endif %}
+      </td>
+      <td>
+        {% if custom_item.pizza_toppings %}
+          {{ custom_item.pizza_toppings | join:", " }}
+        {% else %}
+          {{ custom_item.sub_addons | join:", " }}
+        {% endif %}
+      </td>
+      <td>${{ custom_item.price }}</td>
+      {% if action %}
+      <td>
+        <button class="btn btn-danger btn-item-remove"
+        data-item_number="{{ forloop.counter }}"
+        data-item_type="custom">
+          Remove
+        </button>
+      </td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endif %}
+
+<!-- 
+The absolute jankiest way to display a message if both lists are empty.
+It's the only way that works purely via templating logic. Have mercy on me.
+ -->
+{% if items %}
+{% else %}
+  {% if custom_items %}
+    {% else %}
+    <div class="alert alert-primary mt-3" role="alert">
+      <h2>It's empty in here!</h2>
+      <p>There are no items in the cart. Add something to the cart before proceeding.</p>
+    </div>
+  {% endif %}
+{% endif %}

@@ -1,0 +1,25 @@
+<div id="shopping-cart-navbar-container">
+  <div class="shopping-cart-navbar d-flex justify-content-between
+  align-items-center pt-1 pb-1 pl-3 pr-3 bg-dark text-light">
+      <div class="shopping-cart-total-price-container">
+        <span class="shopping-cart-total-price-heading">Total: </span>
+        <span class="shopping-cart-total-price-amount">${{ total_price }}</span>
+      </div>
+      <div class="shopping-cart-icons-container d-flex align-items-center">
+        <a id="shopping-cart-icon" href="{% url 'shopping_cart' %}">
+          <svg xmlns="http://www.w3.org/2000/svg"  width="32" height="32"
+          viewBox="0 0 24 24"><path fill="#f7f5ef" d="M24
+          3l-.743 2h-1.929l-3.474 12h-13.239l-4.615-11h16.812l-.564
+          2h-13.24l2.937 7h10.428l3.432-12h4.195zm-15.5 15c-.828 0-1.5.672-1.5
+          1.5 0 .829.672 1.5 1.5 1.5s1.5-.671
+          1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.9-7-1.9 7c-.828 0-1.5.671-1.5
+          1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z"/></svg>
+        </a>
+        <span id="shopping-cart-quantity" class="bg-success pl-2 pr-2 pt-1 pb-1
+        ml-2">
+          0
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

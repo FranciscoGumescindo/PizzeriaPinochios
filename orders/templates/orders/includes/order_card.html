@@ -1,0 +1,61 @@
+  {% for order in orders %}
+    <div class="card mb-3">
+      <div class="card-body">
+        {% if request.path == "/view_orders" %}
+          <h2 class="mb-2">{{ order.username }}</h2>
+          <hr>
+        {% endif %}
+        {% if order.items %}
+        <h3 class="mb-3">Static Items</h3>
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <th>Item</th>
+              <th>Category</th>
+              <th>Size</th>
+              <th>Price</th>
+            </tr>
+           {% for item in order.items %}
+             <tr>
+              <td>{{ item.name }}</td>
+              <td>{{ item.category }}</td>
+              <td>{{ item.size }}</td>
+              <td>${{ item.price }}</td>
+            </tr>
+           {% endfor %}
+          </table>
+        </div>
+      {% endif %}
+      {% if order.custom_items %}
+      <h3 class="mb-3">Custom Items</h3>
+      <div class="table-responsive">
+        <table class="table">
+          <tr>
+            <th>Item</th>
+            <th>Category</th>
+            <th>Size</th>
+            <th>Toppings / Addons</th>
+            <th>Price</th>
+          </tr>
+           {% for item in order.custom_items %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.size }}</td>
+            {% if item.pizza_toppings %}
+            <td>{{ item.pizza_toppings | join:", " }}</td>
+            {% else %}
+            <td>{{ item.sub_addons | join:", " }}</td>
+            {% endif %}
+            <td>${{ item.price }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        </div>
+        {% endif %}
+        <div class="timestamp-container">
+          <span class="timestamp">Submitted at: {{ order.submitted_at }}</span>
+        </div>
+      </div>
+    </div>
+  {% endfor %}

@@ -1,0 +1,11 @@
+<script id="sub-custom-addon-template" type="text/x-handlebars-template">
+  <div class="custom-control custom-checkbox">
+  {% verbatim myblock %}
+    <input value="{{ addon }}" type="checkbox" class="sub-addon
+    custom-control-input" id="{{ addon }}">
+      <label class="custom-control-label" for="{{ addon }}">
+        {{ addon }}
+      </label>
+  {% endverbatim myblock %}
+  </div>
+</script>

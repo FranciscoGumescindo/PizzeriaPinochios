@@ -1,0 +1,44 @@
+{% extends "orders/layouts/default.html" %}
+
+{% block title %} Register {% endblock %}
+
+{% block body %}
+<div class="full-height container">
+  <div class="d-flex flex-row justify-content-center">
+    <div class="full-height d-flex flex-column justify-content-center">
+  <div class="card">
+    <div class="card-body">
+      {% include "orders/includes/message.html" %}
+      <h1 class="card-title">Aún no tienes una cuenta?</h1>
+      <h5 class="card-subtitle mb-2">Regístrate para empezar.</h5>
+      <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <label for="first-name">Nombre</label>
+        <input name="first-name" type="first_name" class="form-control mb-2"
+        id="first-name-input" placeholder="first name">
+        <label for="last-name">Apellido</label>
+        <input name="last-name" type="last-name" class="form-control mb-2"
+        id="last-name-input" placeholder="last name">
+        <label for="username">Nombre de Usuario</label>
+        <input name="username" type="username" class="form-control mb-2"
+        id="username-input" placeholder="username">
+        <label for="email">Email</label>
+        <input name="email" type="email" class="form-control mb-2"
+        id="email-input" placeholder="email@example.com">
+        <label for="password">Password</label>
+        <input name="password" type="password" class="form-control mb-2"
+        id="password-input" placeholder="password">
+        </input>
+        <label for="confirm-password">Confirmar Password</label>
+        <input name="confirm-password" type="password" class="form-control mb-2"
+        id="password-input-2" placeholder="confirm password">
+        </input>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+      </form>
+      <span>Ya tienes una cuenta? <a href="{% url 'login' %}">Login</a></span>
+    </div>
+  </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

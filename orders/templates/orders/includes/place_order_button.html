@@ -1,0 +1,13 @@
+<div class="order-button-container d-flex flex-column justify-content-center mt-3">
+  {% if request.path == "/shopping_cart" %}
+  <a class="btn btn-primary btn-lg" id="order-button" role="button"
+  href="{% url 'order' %}">
+    Place Order
+  </a>
+  {% else %}
+  <a class="btn btn-primary btn-lg" id="order-button" role="button"
+  href="{%url 'submit_order' %}">
+    Confirm Order
+  </a>
+  {% endif %}
+</div>

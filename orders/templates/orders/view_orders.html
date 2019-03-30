@@ -1,0 +1,21 @@
+{% extends "orders/layouts/default.html" %}
+
+{% block title %} View Orders {% endblock %}
+
+{% block body %}
+
+{% include "orders/includes/navbar.html" %}
+
+<div class="container">
+  {% if orders %}
+    {% include "orders/includes/order_card.html" %}
+  {% else %}
+  <div class="alert alert-primary" role="alert">
+    <h2 class="mb-2">It's pretty empty here.</h2>
+    <p class="mb-0">
+      There are no orders yet. Customers haven't ordered anything yet.
+    </p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,111 @@
+/* Variables */
+
+$primary: #44486b;
+$secondary: #32354f;
+
+$dark: #222435;
+$light: #f7f5ef;
+
+$black: #222435;
+$white: #f7f5ef;
+
+$shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+$shadow2: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+$font-family-base: "Encode Sans Semi Condensed", sans-serif;
+
+/* Import */
+
+@import "bootstrap/bootstrap.scss";
+
+/* Document */
+
+html,
+body {
+  margin: 0;
+}
+
+::selection {
+  background-color: lighten($primary, 50%);
+}
+
+/* Text */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Container */
+
+.container {
+  max-width: 1440px;
+  padding: 0 10px 70px;
+  margin-top: 70px;
+}
+
+.full-height {
+  min-height: 100vh;
+  height: 100%;
+  margin: auto !important;
+  padding: 0 10px !important;
+}
+
+/* Navbar */
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+/* Menu Items */
+
+.menu-item {
+  cursor: pointer;
+}
+
+.category-title {
+  font-size: 24px;
+}
+
+/* Popup Container */
+
+#popup-message-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($dark, 0.25);
+  opacity: 0;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+#popup-message {
+  background-color: $light;
+  min-width: 280px;
+}
+
+#popup-message-close {
+  cursor: pointer;
+}
+
+/* Shopping Cart Navbar */
+
+.shopping-cart-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 48px;
+  width: 100%;
+}
+
+#shopping-cart-icon {
+  cursor: pointer;
+  height: 32px;
+}

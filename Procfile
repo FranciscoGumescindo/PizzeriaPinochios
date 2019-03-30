@@ -1,0 +1,1 @@
+web: gunicorn pinocchios.wsgi --log-file -

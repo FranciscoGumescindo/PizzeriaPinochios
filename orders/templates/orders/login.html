@@ -1,0 +1,31 @@
+{% extends "orders/layouts/default.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %}
+<div class="full-height container">
+  <div class="d-flex flex-row justify-content-center">
+    <div class="full-height d-flex flex-column justify-content-center">
+      <div class="card">
+        <div class="card-body">
+          {% include "orders/includes/message.html" %}
+          <h1 class="card-title">Bienvenido a Pinocchios!</h1>
+          <h5 class="card-subtitle mb-2">Inicia sesión para comenzar.</h5>
+          <form action="{% url 'login' %}" method="post">
+           {% csrf_token %}
+            <label for="username">Username</label>
+            <input name="username" type="username" class="form-control mb-2"
+            id="username-input" placeholder="username">
+            <label for="password">Password</label>
+            <input name="password" type="password" class="form-control mb-2"
+            id="password-input" placeholder="password">
+            </input>
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+          </form>
+          <span>No account? <a href="{% url 'register' %}">Register</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
